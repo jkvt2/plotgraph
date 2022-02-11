@@ -23,11 +23,11 @@ noises = {
     4: '4_5',
     6: '6_5'}
 h2f = {
-    'rn50': 'ResNet50',
-    'vits': 'VIT',
-    'swint': 'SwinT',
+    'rn50': 'ResNet-50',
+    'vits': 'ViT-S',
+    'swint': 'Swin-T',
     'mixer': 'MLP-Mixer',
-    'gmlp': 'gMLP',
+    'gmlp': 'gMLP-S',
 }
 results = {}
 for shortform, filename in noises.items():
@@ -55,7 +55,7 @@ def plot_across_nl():
     handles, labels = axs[0].get_legend_handles_labels()
     axs[-1].legend(handles, labels, loc=[1.1,0.3])
 
-    fig.text(0.09, 0.6, 'Top 1 test acc (%)', va='center', rotation='vertical')
+    fig.text(0.09, 0.6, 'Top 1 val acc (%)', va='center', rotation='vertical')
     plt.subplots_adjust(wspace=0.05, bottom=0.2)
     plt.show()
 
@@ -83,8 +83,9 @@ def plot_across_arch():
     handles, labels = axs[0].get_legend_handles_labels()
     axs[-1].legend(handles, labels, loc=[1.05,0.3])
 
-    fig.text(0.09, 0.6, 'Top 1 test acc (%)', va='center', rotation='vertical')
+    fig.text(0.09, 0.6, 'Top 1 val acc (%)', va='center', rotation='vertical')
     plt.subplots_adjust(wspace=0.05, bottom=0.2)
     plt.show()
 
+plot_across_nl()
 plot_across_arch()
